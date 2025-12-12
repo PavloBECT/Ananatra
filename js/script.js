@@ -10,12 +10,22 @@ const personalMovieDB = {
     private: false
 }
 
-const a = prompt ('Один з останніх фільмів, що ви дивилися?', ''),
-      b = prompt('На скільки оцінююте?', ''),
-      c = prompt ('Один з останніх фільмів, що ви дивилися?', ''),
-      d = prompt('На скільки оцінююте?', '');
+let isFinish = false;
 
-personalMovieDB.movies[a] = b;
-personalMovieDB.movies[c] = d;
+while (!isFinish) {
+    const a = prompt ('Один з останніх фільмів, що ви дивилися?', '');
+    if (a == null || a.length == 0 || a.length > 50) {
+        alert('Недопустима назва фільму');
+        continue;
+    }    
+    const b = prompt('На скільки оцінююте?', '');
+    personalMovieDB.movies[a] = b;
+    isFinish = confirm ('Завершити?');
+}
 
-console.log(personalMovieDB);
+if (mnumberOfFilms < 10 ) alert('Ви подивилися занадто мало фільмів...')
+    else if (mnumberOfFilms >= 10 && mnumberOfFilms < 30 ) alert('Ви класичной глядач!')
+            else if (mnumberOfFilms >= 30) alert('Ви кіноман!')
+                else alert('Сталася помилка...');
+
+
